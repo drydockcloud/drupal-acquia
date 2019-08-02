@@ -106,7 +106,7 @@ RUN . /usr/src/config && \
         make && \
         make install  &&\
         # Install, including ssh2 (which is installed but not via PECL)
-        yes '' | pecl install -n ${PECL} ssh2-1.1.2 && \
+        yes '' | pecl install -n ${PECL} ssh2-1.1.2; \
         # Move the extensions from the extension API version directory to the /opt/php/lib directory to simplify configuration (PECL ext_dir does not work)
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
         # Repeat the install/move so that extensions with dependencies can install

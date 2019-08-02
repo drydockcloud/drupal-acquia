@@ -38,7 +38,7 @@ pipeline {
                         }
                     }
                 }
-                stage('NGINX') {
+                stage('httpd') {
                     steps {
                         script {
                             docker.build("drydockcloud/drupal-acquia-httpd:${TAG}", "./httpd")
