@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  web:
+    image: "drydockcloud/drupal-acquia-httpd:${TAG:-latest}"
+    volumes:
+      - .:/var/www
+    depends_on:
+      - php
+  php:
+    image: "drydockcloud/drupal-acquia-php-${VERSION:-7.2}:${TAG:-latest}"
+    volumes:
+      - .:/var/www
+    depends_on:
+      - mysql
+  mysql:
+    image: "drydockcloud/drupal-acquia-mysql:${TAG:-latest}"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=drupal
+      - MYSQL_PASSWORD=drupal
+      - MYSQL_DATABASE=drupal
