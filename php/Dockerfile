@@ -95,7 +95,7 @@ RUN . /usr/src/config && \
         echo "${FPM_INI}" > "${FPM_INI_FILE}" && \
         \
         # Install PHP extensions
-        pecl channel-update pecl.php.net && \
+        pecl channel-update pecl.php.net; \
         # Install tideways from source (not available from pecl)
         cd /usr/src && \
         curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/v4.1.5.tar.gz && \
