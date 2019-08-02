@@ -110,7 +110,7 @@ RUN . /usr/src/config && \
         # Move the extensions from the extension API version directory to the /opt/php/lib directory to simplify configuration (PECL ext_dir does not work)
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
         # Repeat the install/move so that extensions with dependencies can install
-        yes '' | pecl install -n ${PECL} && \
+        yes '' | pecl install -n ${PECL}; \
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
         # Configure php-fpm to use an existant user
         sed -i'' -e 's/^group = nobody/group = nogroup/' /usr/local/php/etc/php-fpm.d/www.conf.default && \
