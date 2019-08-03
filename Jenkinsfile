@@ -24,7 +24,7 @@ pipeline {
                     steps {
                         script {
                             withEnv(['VERSION=7.1']) {
-                                sh 'docker build "drydockcloud/drupal-acquia-php-${VERSION}:${TAG}" ./php --build-arg version="${VERSION}"'
+                                sh 'docker build -t "drydockcloud/drupal-acquia-php-${VERSION}:${TAG}" ./php --build-arg version="${VERSION}"'
                             }
                         }
                     }
@@ -33,7 +33,7 @@ pipeline {
                     steps {
                         script {
                             withEnv(['VERSION=7.2']) {
-                                sh 'docker build "drydockcloud/drupal-acquia-php-${VERSION}:${TAG}" ./php --build-arg version="${VERSION}"'
+                                sh 'docker build -t "drydockcloud/drupal-acquia-php-${VERSION}:${TAG}" ./php --build-arg version="${VERSION}"'
                             }
                         }
                     }
@@ -41,14 +41,14 @@ pipeline {
                 stage('httpd') {
                     steps {
                         script {
-                            sh 'docker build "drydockcloud/drupal-acquia-httpd:${TAG}" ./httpd'
+                            sh 'docker build -t "drydockcloud/drupal-acquia-httpd:${TAG}" ./httpd'
                         }
                     }
                 }
                 stage('MySQL') {
                     steps {
                         script {
-                            sh 'docker build "drydockcloud/drupal-acquia-mysql:${TAG}" ./mysql'
+                            sh 'docker build -t "drydockcloud/drupal-acquia-mysql:${TAG}" ./mysql'
                         }
                     }
                 }
