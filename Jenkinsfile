@@ -38,6 +38,15 @@ pipeline {
                         }
                     }
                 }
+                stage('PHP 7.3') {
+                    steps {
+                        script {
+                            withEnv(['VERSION=7.3']) {
+                                sh 'docker build -t "drydockcloud/drupal-acquia-php-${VERSION}:${TAG}" ./php --build-arg version="${VERSION}"'
+                            }
+                        }
+                    }
+                }
                 stage('httpd') {
                     steps {
                         script {
@@ -66,6 +75,15 @@ pipeline {
                     }
                 }
                 stage('Test PHP 7.2') {
+                    steps {
+                        script {
+                            withEnv(['VERSION=7.1']) {
+                                sh 'test/test.sh'
+                            }
+                        }
+                    }
+                }
+                stage('Test PHP 7.3') {
                     steps {
                         script {
                             withEnv(['VERSION=7.1']) {
