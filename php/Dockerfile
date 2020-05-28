@@ -63,6 +63,7 @@ COPY "${version}"-config /usr/src/config
 # hadolint ignore=SC1091,SC2016,SC2086,DL3003,DL3008
 RUN . /usr/src/config && \
         apt-get update && apt-get install -y \
+        apt-utils \
         ${BUILDDEPS} \
         # Permanently installed dependencies
         ca-certificates \
@@ -81,8 +82,11 @@ RUN . /usr/src/config && \
         # Workaround for library issue on Ubuntu 16.04
         ln -s /usr/lib/libc-client.a /usr/lib/x86_64-linux-gnu/libc-client.a && \
         # Build CLI - variable not quoted as it contains arguments that are separate words
+	echo "Running configure with ${CLI_CONFIGURE_OPTIONS}" && \
         ./configure ${CLI_CONFIGURE_OPTIONS} && \
+	echo "Running make with ${nproc}" && \
         make -j "$(nproc)" && \
+	echo "Running make install" && \
         make install && \
         # Build FPM - variable not quoted as it contains arguments that are separate words
         ./configure ${FPM_CONFIGURE_OPTIONS} && \
