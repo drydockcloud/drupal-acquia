@@ -82,11 +82,11 @@ RUN . /usr/src/config && \
         ln -s /usr/lib/libc-client.a /usr/lib/x86_64-linux-gnu/libc-client.a && \
         # Build CLI - variable not quoted as it contains arguments that are separate words
         ./configure ${CLI_CONFIGURE_OPTIONS} && \
-        make -j "$(nproc)" && \
+        make -j "4" && \
         make install && \
         # Build FPM - variable not quoted as it contains arguments that are separate words
         ./configure ${FPM_CONFIGURE_OPTIONS} && \
-        make -j "$(nproc)" && \
+        make -j "4" && \
         make install && \
         \
         # Copy the etc configuration into place, replacing all existing config.

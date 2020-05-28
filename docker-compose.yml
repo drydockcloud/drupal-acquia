@@ -15,8 +15,3 @@ services:
       - mysql
   mysql:
     image: "drydockcloud/drupal-acquia-mysql:${TAG:-latest}"
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=drupal
-      - MYSQL_PASSWORD=drupal
-      - MYSQL_DATABASE=drupal
