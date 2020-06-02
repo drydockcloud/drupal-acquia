@@ -17,16 +17,16 @@ scp -i /Users/davidsumner/.ssh/id_rsa_4096 "$DIR"/getconfig.php ridata.prod@"${H
 echo "Ping"
 for PHP in "${SUPPORTED_PHP[@]}"; do
     echo "Getting config for $HOST -> $PHP"
-    ssh -i /Users/davidsumner/.ssh/id_rsa_4096 -l ridata.prod "$HOST" "/usr/local/php${PHP}/bin/php" /tmp/getconfig.php acquia > php/"${PHP}"-config
+    ssh "$HOST" "/usr/local/php${PHP}/bin/php" /tmp/getconfig.php acquia > php/"${PHP}"-config
 done
-ssh -i /Users/davidsumner/.ssh/id_rsa_4096 -l ridata.prod "$HOST" rm /tmp/getconfig.php
+ssh "$HOST" rm /tmp/getconfig.php
 
 echo "Updating Percona version"
 # Get a regular site alias to connect to
-ALIAS=$(ssh -i /Users/davidsumner/.ssh/id_rsa_4096 -l ridata.prod "$HOST" drush sa --local-only | grep -E '\.(prod|test|dev)$' | head -n1)
+ALIAS=$(ssh "$HOST" drush sa --local-only | grep -E '\.(prod|test|dev)$' | head -n1)
 # Connect to the alias and output the version string
 # shellcheck disable=SC2029
-RAWVERSION=$(ssh -i /Users/davidsumner/.ssh/id_rsa_4096 -l ridata.prod "$HOST" "drush $ALIAS sqlq 'SHOW VARIABLES LIKE \"version\"'")
+RAWVERSION=$(ssh "$HOST" "drush $ALIAS sqlq 'SHOW VARIABLES LIKE \"version\"'")
 # Extract the primary version number from the version string
 MYSQLVERSION=$(echo "$RAWVERSION" | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')
 # Update the version number in the Dockerfile with the extracted number
@@ -34,6 +34,6 @@ sed -i'' -e "s/FROM percona:[0-9.]*$/FROM percona:$MYSQLVERSION/" mysql/Dockerfi
 
 echo "Updating HTTPD version"
 # Get HTTPD version number
-HTTPDVERSION=$(ssh -i /Users/davidsumner/.ssh/id_rsa_4096 -l ridata.prod "$HOST" apachectl -v | grep version | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')
+HTTPDVERSION=$(ssh "$HOST" apachectl -v | grep version | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')
 # Update the version number in the Dockerfile with the extracted number
 sed -i'' -e "s/FROM httpd:[0-9.]*$/FROM httpd:$HTTPDVERSION/" httpd/Dockerfile
