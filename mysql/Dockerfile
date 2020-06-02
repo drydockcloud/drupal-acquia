@@ -1,4 +1,4 @@
-FROM percona:5.6.32
+FROM percona:5.6.41
 
 # NOTE: This is not a production build: for sandbox/CI use only
 
