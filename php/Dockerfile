@@ -108,15 +108,14 @@ RUN . /usr/src/config && \
         ./configure && \
         make && \
         make install && \
-        # Install, including ssh2 (which is installed but not via PECL)
+        # Install, including raphf and ssh2 (which is installed but not via PECL)
         yes '' | pecl install -n raphf-2.0.1 ssh2-1.1.2 ${PECL}; \
         # Move the extensions from the extension API version directory to the /opt/php/lib directory to simplify configuration (PECL ext_dir does not work)
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
         # Repeat the install/move so that extensions with dependencies can install
         yes '' | pecl install -n ${PECL}; \
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
-        ## Repeat the install/move so that extensions with dependencies can install
-        echo "### Running the pecl_http extension install once more ###" && \
+        #  Install, including pecl_http (which is installed but not via PECL)
         yes '' | pecl install -n pecl_http-3.2.3; \
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
         # Configure php-fpm to use an existant user
