@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 # NOTE: This is not a production build: for sandbox/CI use only
 
 # Pass the version of PHP to use as a build arg - must have corresponding config file
-ARG version=7.2
+ARG version=7.3
 
 # Build dependencies - removed after build is complete
 ENV BUILDDEPS autoconf \
@@ -34,12 +34,14 @@ ENV BUILDDEPS autoconf \
         libpspell-dev \
         libreadline-dev \
         libsasl2-dev \
+        libsodium-dev \
         libsqlite3-dev \
         libssh2-1-dev \
         libssl-dev \
         libsslcommon2-dev \
         libtidy-dev \
-        libxml2-dev \
+        libwebp-dev \
+	libxml2-dev \
         libxpm-dev \
         libxslt-dev \
         libyaml-dev \
@@ -63,6 +65,7 @@ COPY "${version}"-config /usr/src/config
 # hadolint ignore=SC1091,SC2016,SC2086,DL3003,DL3008
 RUN . /usr/src/config && \
         apt-get update && apt-get install -y \
+        apt-utils \
         ${BUILDDEPS} \
         # Permanently installed dependencies
         ca-certificates \
@@ -82,11 +85,11 @@ RUN . /usr/src/config && \
         ln -s /usr/lib/libc-client.a /usr/lib/x86_64-linux-gnu/libc-client.a && \
         # Build CLI - variable not quoted as it contains arguments that are separate words
         ./configure ${CLI_CONFIGURE_OPTIONS} && \
-        make -j "$(nproc)" && \
+        make -j "4" && \
         make install && \
         # Build FPM - variable not quoted as it contains arguments that are separate words
         ./configure ${FPM_CONFIGURE_OPTIONS} && \
-        make -j "$(nproc)" && \
+        make -j "4" && \
         make install && \
         \
         # Copy the etc configuration into place, replacing all existing config.
@@ -98,15 +101,20 @@ RUN . /usr/src/config && \
         pecl channel-update pecl.php.net; \
         # Install tideways from source (not available from pecl)
         cd /usr/src && \
-        curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/v4.1.5.tar.gz && \
+        curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/v4.1.7.tar.gz && \
         tar xzf xhprof.tar.gz && \
         cd php-xhprof-extension-* && \
+        echo "### Running phpize ###" && \
         phpize && \
+        echo "### Running configure ###" && \
         ./configure && \
+        echo "### Running make ###" && \
         make && \
-        make install  &&\
+        echo "### Running make install ###" && \
+        make install && \
+        echo "### Running pecl install for raphf ssh2 and others ###" && \
         # Install, including ssh2 (which is installed but not via PECL)
-        yes '' | pecl install -n ${PECL} ssh2-1.1.2; \
+        yes '' | pecl install -n raphf-2.0.1 ssh2-1.1.2 pecl_http-3.2.3 ${PECL}; \
         # Move the extensions from the extension API version directory to the /opt/php/lib directory to simplify configuration (PECL ext_dir does not work)
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
         # Repeat the install/move so that extensions with dependencies can install
