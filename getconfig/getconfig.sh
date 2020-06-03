@@ -14,7 +14,6 @@ fi
 echo "Updating PHP configuration"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 scp "$DIR"/getconfig.php "${HOST}":/tmp/
-echo "Ping"
 for PHP in "${SUPPORTED_PHP[@]}"; do
     echo "Getting config for $HOST -> $PHP"
     ssh "$HOST" "/usr/local/php${PHP}/bin/php" /tmp/getconfig.php acquia > php/"${PHP}"-config
