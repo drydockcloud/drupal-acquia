@@ -13,7 +13,7 @@ fi
 
 echo "Updating PHP configuration"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-scp -i /Users/davidsumner/.ssh/id_rsa_4096 "$DIR"/getconfig.php ridata.prod@"${HOST}":/tmp/
+scp "$DIR"/getconfig.php "${HOST}":/tmp/
 echo "Ping"
 for PHP in "${SUPPORTED_PHP[@]}"; do
     echo "Getting config for $HOST -> $PHP"
