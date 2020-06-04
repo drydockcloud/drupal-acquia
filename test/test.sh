@@ -26,7 +26,7 @@ sleep 10
 # TODO: Actually install Drupal here and also test dumping and autoloading a database.
 
 echo "Fetching page to check status"
-STATUS=$(docker-compose run --no-deps --rm php curl --location --silent --output /dev/null --write-out "%{http_code}" "http://web/" || true)
+STATUS=$(docker-compose exec php curl --location --silent --output /dev/null --write-out "%{http_code}" "http://web/" || true)
 echo "Status: ${STATUS}"
 if [ "${STATUS}" != "200" ]; then
     echo "httpd container not responding with 200 HTTP response code"
@@ -35,7 +35,7 @@ fi
 echo "Page status OK"
 
 echo "Checking PHP version"
-ACTUAL=$(docker-compose run --rm php php --version | head -n 1 | cut -d " " -f 2 | cut -d'.' -f1-2)
+ACTUAL=$(docker-compose exec php php --version | head -n 1 | cut -d " " -f 2 | cut -d'.' -f1-2)
 if [ "${ACTUAL}" != "${VERSION}" ]; then
     echo "PHP ${ACTUAL} does not match expected version number ${VERSION}"
     exit 2
