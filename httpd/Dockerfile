@@ -6,7 +6,7 @@ RUN apt-get update && \
       -keyout /usr/local/apache2/conf/server.key \
       -newkey rsa:2048 -nodes -sha256 -subj '/CN=localhost' && \
     apt-get remove -y openssl && \
-    apt-get purge && \
-    apt-get clean
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
