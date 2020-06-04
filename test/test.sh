@@ -30,6 +30,7 @@ STATUS=$(docker-compose exec php curl --location --silent --output /dev/null --w
 echo "Status: ${STATUS}"
 if [ "${STATUS}" != "200" ]; then
     echo "httpd container not responding with 200 HTTP response code"
+    docker-compose logs
     exit 1
 fi
 echo "Page status OK"
