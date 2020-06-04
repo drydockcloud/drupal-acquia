@@ -1,9 +1,9 @@
 export DISTRO='Distributor ID:	Ubuntu
 Release:	16.04'
-export EXACT_VERSION='7.1.34-dev'
-export CLI_CONFIGURE_OPTIONS='--enable-cli --with-config-file-path=/usr/local/php/etc/cli --with-config-file-scan-dir=/usr/local/php/etc/cli/conf.d --prefix=/usr/local/php --enable-bcmath --with-gmp --with-bz2=/usr --enable-calendar --with-curl --enable-dba --with-db4 --enable-exif --with-gd --with-jpeg-dir=/usr/lib --with-png-dir=/usr/lib --with-webp-dir=/usr/lib --with-freetype-dir=/usr --enable-ftp --with-gettext --with-imap --with-kerberos --with-imap-ssl --enable-inline-optimization --with-ldap --with-ldap-sasl --with-openssl=/usr --enable-mbstring --enable-mbregex --with-mcrypt --with-mhash --with-mssql --with-mysql --with-mysql-sock=/var/run/mysqld/mysqld.sock --with-mysqli=/usr/bin/mysql_config --enable-pcntl --with-pcre-regex --with-pgsql --with-pdo-mysql --with-pdo-pgsql --with-pdo-dblib --with-pspell=/usr --with-readline --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-sysvshm --enable-sysvmsg --with-tidy --enable-wddx --enable-xml --with-xmlrpc --with-xsl --with-xpm-dir=/usr --enable-zip --with-zlib --with-libdir=/lib/x86_64-linux-gnu'
-export FPM_CONFIGURE_OPTIONS='--enable-fpm --disable-cli --with-config-file-path=/usr/local/php/etc/fpm --with-config-file-scan-dir=/usr/local/php/etc/fpm/conf.d --prefix=/usr/local/php --enable-bcmath --with-gmp --with-bz2=/usr --enable-calendar --with-curl --enable-dba --with-db4 --enable-exif --with-gd --with-jpeg-dir=/usr/lib --with-png-dir=/usr/lib --with-webp-dir=/usr/lib --with-freetype-dir=/usr --enable-ftp --with-gettext --with-imap --with-kerberos --with-imap-ssl --enable-inline-optimization --with-ldap --with-ldap-sasl --with-openssl=/usr --enable-mbstring --enable-mbregex --with-mcrypt --with-mhash --with-mssql --with-mysql --with-mysql-sock=/var/run/mysqld/mysqld.sock --with-mysqli=/usr/bin/mysql_config --enable-pcntl --with-pcre-regex --with-pgsql --with-pdo-mysql --with-pdo-pgsql --with-pdo-dblib --with-pspell=/usr --with-readline --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-sysvshm --enable-sysvmsg --with-tidy --enable-wddx --enable-xml --with-xmlrpc --with-xsl --with-xpm-dir=/usr --enable-zip --with-zlib --with-libdir=/lib/x86_64-linux-gnu'
-export PECL='apcu-5.1.18 gnupg-1.4.0 igbinary-3.1.2 imagick-3.4.4 memcached-3.1.5 oauth-2.0.5 pecl_http-3.2.3 propro-2.1.0 raphf-2.0.1 ssh2-1.1.2 yaml-2.0.4'
+export EXACT_VERSION='7.1.25'
+export CLI_CONFIGURE_OPTIONS='--enable-cli --with-config-file-path=/usr/local/php/etc/cli --with-config-file-scan-dir=/usr/local/php/etc/cli/conf.d --prefix=/usr/local/php --enable-bcmath --with-gmp --with-bz2=/usr --enable-calendar --with-curl --enable-dba --with-db4 --enable-exif --with-gd --with-jpeg-dir=/usr/lib --with-png-dir=/usr/lib --with-freetype-dir=/usr --enable-ftp --with-gettext --with-imap --with-kerberos --with-imap-ssl --enable-inline-optimization --with-ldap --with-ldap-sasl --with-openssl=/usr --enable-mbstring --enable-mbregex --with-mcrypt --with-mhash --with-mssql --with-mysql --with-mysql-sock=/var/run/mysqld/mysqld.sock --with-mysqli=/usr/bin/mysql_config --enable-pcntl --with-pcre-regex --with-pgsql --with-pdo-mysql --with-pdo-pgsql --with-pdo-dblib --with-pspell=/usr --with-readline --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-sysvshm --enable-sysvmsg --with-tidy --enable-wddx --enable-xml --with-xmlrpc --with-xsl --with-xpm-dir=/usr --enable-zip --with-zlib --with-libdir=/lib/x86_64-linux-gnu'
+export FPM_CONFIGURE_OPTIONS='--enable-fpm --disable-cli --with-config-file-path=/usr/local/php/etc/fpm --with-config-file-scan-dir=/usr/local/php/etc/fpm/conf.d --prefix=/usr/local/php --enable-bcmath --with-gmp --with-bz2=/usr --enable-calendar --with-curl --enable-dba --with-db4 --enable-exif --with-gd --with-jpeg-dir=/usr/lib --with-png-dir=/usr/lib --with-freetype-dir=/usr --enable-ftp --with-gettext --with-imap --with-kerberos --with-imap-ssl --enable-inline-optimization --with-ldap --with-ldap-sasl --with-openssl=/usr --enable-mbstring --enable-mbregex --with-mcrypt --with-mhash --with-mssql --with-mysql --with-mysql-sock=/var/run/mysqld/mysqld.sock --with-mysqli=/usr/bin/mysql_config --enable-pcntl --with-pcre-regex --with-pgsql --with-pdo-mysql --with-pdo-pgsql --with-pdo-dblib --with-pspell=/usr --with-readline --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-sysvshm --enable-sysvmsg --with-tidy --enable-wddx --enable-xml --with-xmlrpc --with-xsl --with-xpm-dir=/usr --enable-zip --with-zlib --with-libdir=/lib/x86_64-linux-gnu'
+export PECL='apcu-5.1.15 gnupg-1.4.0 igbinary-2.0.8 imagick-3.4.3 memcached-3.0.4 oauth-2.0.3 pecl_http-3.2.0 propro-2.1.0 raphf-2.0.0 ssh2-1.1.2 yaml-2.0.4'
 export EXTENSIONS='Core
 OAuth
 PDO
@@ -76,78 +76,78 @@ xsl
 yaml
 zip
 zlib'
-export EXTENSIONS_VERSIONS='Core-7.1.34-dev
-OAuth-2.0.5
-PDO-7.1.34-dev
+export EXTENSIONS_VERSIONS='Core-7.1.25
+OAuth-2.0.3-dev
+PDO-7.1.25
 Phar-2.0.2
-Reflection-7.1.34-dev
-SPL-7.1.34-dev
-SimpleXML-7.1.34-dev
-bcmath-7.1.34-dev
-bz2-7.1.34-dev
-calendar-7.1.34-dev
-ctype-7.1.34-dev
-curl-7.1.34-dev
-date-7.1.34-dev
-dba-7.1.34-dev
+Reflection-7.1.25
+SPL-7.1.25
+SimpleXML-7.1.25
+bcmath-7.1.25
+bz2-7.1.25
+calendar-7.1.25
+ctype-7.1.25
+curl-7.1.25
+date-7.1.25
+dba-7.1.25
 dom-20031129
-exif-7.1.34-dev
+exif-7.1.25
 fileinfo-1.0.5
-filter-7.1.34-dev
-ftp-7.1.34-dev
-gd-7.1.34-dev
-gettext-7.1.34-dev
-gmp-7.1.34-dev
+filter-7.1.25
+ftp-7.1.25
+gd-7.1.25
+gettext-7.1.25
+gmp-7.1.25
 gnupg-1.4.0
 hash-1.0
-http-3.2.3
-iconv-7.1.34-dev
-igbinary-3.1.2
-imagick-3.4.4
-imap-7.1.34-dev
+http-3.2.0
+iconv-7.1.25
+igbinary-2.0.8
+imagick-3.4.3
+imap-7.1.25
 json-1.5.0
-ldap-7.1.34-dev
-libxml-7.1.34-dev
-mbstring-7.1.34-dev
-mcrypt-7.1.34-dev
-memcached-3.1.5
-mysqli-7.1.34-dev
+ldap-7.1.25
+libxml-7.1.25
+mbstring-7.1.25
+mcrypt-7.1.25
+memcached-3.0.4
+mysqli-7.1.25
 mysqlnd-mysqlnd 5.0.12-dev - 20150407 - $Id: 38fea24f2847fa7519001be390c98ae0acafe387 $
-openssl-7.1.34-dev
-pcntl-7.1.34-dev
-pcre-7.1.34-dev
-pdo_dblib-7.1.34-dev
-pdo_mysql-7.1.34-dev
-pdo_pgsql-7.1.34-dev
-pdo_sqlite-7.1.34-dev
-pgsql-7.1.34-dev
-posix-7.1.34-dev
+openssl-7.1.25
+pcntl-7.1.25
+pcre-7.1.25
+pdo_dblib-7.1.25
+pdo_mysql-7.1.25
+pdo_pgsql-7.1.25
+pdo_sqlite-7.1.25
+pgsql-7.1.25
+posix-7.1.25
 propro-2.1.0
-pspell-7.1.34-dev
-raphf-2.0.1
-readline-7.1.34-dev
-session-7.1.34-dev
-shmop-7.1.34-dev
-soap-7.1.34-dev
-sockets-7.1.34-dev
-sqlite3-7.1.34-dev
+pspell-7.1.25
+raphf-2.0.0
+readline-7.1.25
+session-7.1.25
+shmop-7.1.25
+soap-7.1.25
+sockets-7.1.25
+sqlite3-7.1.25
 ssh2-1.1.2
-standard-7.1.34-dev
-sysvmsg-7.1.34-dev
-sysvsem-7.1.34-dev
-sysvshm-7.1.34-dev
+standard-7.1.25
+sysvmsg-7.1.25
+sysvsem-7.1.25
+sysvshm-7.1.25
 tideways-4.1.5
-tidy-7.1.34-dev
-tokenizer-7.1.34-dev
-wddx-7.1.34-dev
-xml-7.1.34-dev
-xmlreader-7.1.34-dev
-xmlrpc-7.1.34-dev
-xmlwriter-7.1.34-dev
-xsl-7.1.34-dev
+tidy-7.1.25
+tokenizer-7.1.25
+wddx-7.1.25
+xml-7.1.25
+xmlreader-7.1.25
+xmlrpc-7.1.25
+xmlwriter-7.1.25
+xsl-7.1.25
 yaml-2.0.4
 zip-1.13.5
-zlib-7.1.34-dev'
+zlib-7.1.25'
 export CLI_INI_FILE='/usr/local/php/etc/cli/php.ini'
 export CLI_INI='[PHP]
 
@@ -2432,13 +2432,6 @@ cli_server.color = On
 ; otherwise output encoding conversion cannot be performed.
 ;iconv.output_encoding =
 
-[imap]
-; rsh/ssh logins are disabled by default. Use this INI entry if you want to
-; enable them. Note that the IMAP library does not filter mailbox names before
-; passing them to rsh/ssh command, thus passing untrusted data to this function
-; with rsh/ssh enabled is insecure.
-;imap.enable_insecure_rsh=0
-
 [intl]
 ;intl.default_locale =
 ; This directive allows you to produce PHP errors when some error
@@ -2448,18 +2441,7 @@ cli_server.color = On
 ;intl.use_exceptions = 0
 
 [sqlite3]
-; Directory pointing to SQLite3 extensions
-; http://php.net/sqlite3.extension-dir
 ;sqlite3.extension_dir =
-
-; SQLite defensive mode flag (only available from SQLite 3.26+)
-; When the defensive flag is enabled, language features that allow ordinary
-; SQL to deliberately corrupt the database file are disabled. This forbids
-; writing directly to the schema, shadow tables (eg. FTS data tables), or
-; the sqlite_dbpage virtual table.
-; https://www.sqlite.org/c3ref/c_dbconfig_defensive.html
-; (for older SQLite versions, this flag has no use)
-sqlite3.defensive = 1
 
 [Pcre]
 ;PCRE library backtracking limit.
@@ -3424,8 +3406,8 @@ extension=imagick.so
 extension=memcached.so
 
 extension=newrelic.so
-; Ensure that we control when the daemon starts/stops using systemd.
-; This requires /etc/newrelic/newrelic.cfg to exist.
+; Ensure that we control when the daemon starts/stops using init.d
+; This requires /etc/newrelic/newrelic.cfg to exist (which should be installed using Puppet)
 ; For more info see: https://newrelic.com/docs/php/newrelic-daemon-startup-modes#daemon-external
 newrelic.daemon.dont_launch = 3
 
@@ -3572,17 +3554,16 @@ memcached.serializer: php
 memcached.sess_binary_protocol: 1
 memcached.sess_connect_timeout: 0
 memcached.sess_consistent_hash: 1
-memcached.sess_consistent_hash_type: ketama
 memcached.sess_lock_expire: 0
 memcached.sess_lock_max_wait: not set
 memcached.sess_lock_retries: 5
 memcached.sess_lock_wait: not set
-memcached.sess_lock_wait_max: 150
-memcached.sess_lock_wait_min: 150
+memcached.sess_lock_wait_max: 2000
+memcached.sess_lock_wait_min: 1000
 memcached.sess_locking: 1
 memcached.sess_number_of_replicas: 0
 memcached.sess_persistent: 0
-memcached.sess_prefix: memc.sess.key.
+memcached.sess_prefix: memc.sess.
 memcached.sess_randomize_replica_read: 0
 memcached.sess_remove_failed_servers: 0
 memcached.sess_sasl_password: 
@@ -3683,7 +3664,6 @@ soap.wsdl_cache_enabled: 1
 soap.wsdl_cache_limit: 5
 soap.wsdl_cache_ttl: 86400
 sql.safe_mode: 
-sqlite3.defensive: 1
 sqlite3.extension_dir: 
 sys_temp_dir: 
 tideways.api_key: 
@@ -3732,3 +3712,4 @@ zend.signal_check: 0
 zlib.output_compression: 
 zlib.output_compression_level: -1
 zlib.output_handler: '
+
