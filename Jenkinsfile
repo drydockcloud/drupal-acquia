@@ -17,6 +17,7 @@ pipeline {
             }
         }
         stage('Build') {
+            when { anyOf { branch 'master'; changeRequest(); } }
             parallel {
                 stage('PHP 7.1') {
                     steps {
@@ -53,6 +54,7 @@ pipeline {
             }
         }
         stage('Test') {
+            when { anyOf { branch 'master'; changeRequest(); } }
             parallel {
                 stage('Test PHP 7.1') {
                     steps {
