@@ -55,7 +55,7 @@ pipeline {
         }
         stage('Test') {
             when { anyOf { branch 'master'; changeRequest(); } }
-            parallel {
+            stages {
                 stage('Test PHP 7.1') {
                     steps {
                         script {
