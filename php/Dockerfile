@@ -115,7 +115,7 @@ RUN . /usr/src/config && \
         # Repeat the install/move so that extensions with dependencies can install
         yes '' | pecl install -n ${PECL}; \
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
-        #  Install, including pecl_http (which is installed but not via PECL)
+        #  Install, including pecl_http (dependencies satisfied at this point)
         yes '' | pecl install -n pecl_http-3.2.3; \
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
         # Configure php-fpm to use an existant user
