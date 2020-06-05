@@ -41,7 +41,7 @@ ENV BUILDDEPS autoconf \
         libsslcommon2-dev \
         libtidy-dev \
         libwebp-dev \
-	libxml2-dev \
+        libxml2-dev \
         libxpm-dev \
         libxslt-dev \
         libyaml-dev \
