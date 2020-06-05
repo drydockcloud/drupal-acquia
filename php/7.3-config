@@ -4152,24 +4152,24 @@ default_mimetype: text/html
 default_socket_timeout: 60
 disable_classes: 
 disable_functions: 
-display_errors: 1
+display_errors: 
 display_startup_errors: 
 doc_root: 
 docref_ext: 
 docref_root: 
-enable_dl: 1
+enable_dl: 
 enable_post_data_reading: 1
 error_append_string: 
-error_log: syslog
+error_log: 
 error_prepend_string: 
-error_reporting: 32767
+error_reporting: 22527
 exif.decode_jis_intel: JIS
 exif.decode_jis_motorola: JIS
 exif.decode_unicode_intel: UCS-2LE
 exif.decode_unicode_motorola: UCS-2BE
 exif.encode_jis: 
 exif.encode_unicode: ISO-8859-15
-expose_php: 
+expose_php: 1
 extension_dir: /usr/local/php/lib/php/extensions
 file_uploads: 1
 filter.default: unsafe_raw
@@ -4188,7 +4188,7 @@ iconv.input_encoding:
 iconv.internal_encoding: 
 iconv.output_encoding: 
 igbinary.compact_strings: 1
-ignore_repeated_errors: 1
+ignore_repeated_errors: 
 ignore_repeated_source: 
 ignore_user_abort: 0
 imagick.locale_fix: 0
@@ -4202,7 +4202,7 @@ internal_encoding:
 ldap.max_links: -1
 log_errors: 1
 log_errors_max_len: 1024
-mail.add_x_header: 0
+mail.add_x_header: 
 mail.force_extra_parameters: 
 mail.log: 
 max_execution_time: 0
@@ -4236,8 +4236,8 @@ memcached.sess_lock_expire: 0
 memcached.sess_lock_max_wait: not set
 memcached.sess_lock_retries: 5
 memcached.sess_lock_wait: not set
-memcached.sess_lock_wait_max: 2000
-memcached.sess_lock_wait_min: 1000
+memcached.sess_lock_wait_max: 150
+memcached.sess_lock_wait_min: 150
 memcached.sess_locking: 1
 memcached.sess_number_of_replicas: 0
 memcached.sess_persistent: 0
@@ -4249,7 +4249,7 @@ memcached.sess_sasl_username:
 memcached.sess_server_failure_limit: 0
 memcached.store_retry_count: 2
 memory_limit: 512M
-mysqli.allow_local_infile: 1
+mysqli.allow_local_infile: 0
 mysqli.allow_persistent: 1
 mysqli.default_host: 
 mysqli.default_port: 3306
@@ -4260,7 +4260,7 @@ mysqli.max_links: -1
 mysqli.max_persistent: -1
 mysqli.reconnect: 
 mysqli.rollback_on_cached_plink: 0
-mysqlnd.collect_memory_statistics: 0
+mysqlnd.collect_memory_statistics: 
 mysqlnd.collect_statistics: 1
 mysqlnd.debug: 
 mysqlnd.fetch_data_copy: 0
@@ -4290,7 +4290,7 @@ pgsql.max_persistent: -1
 phar.cache_list: 
 phar.readonly: 1
 phar.require_hash: 1
-post_max_size: 256M
+post_max_size: 8M
 precision: 14
 raphf.persistent_handle.limit: -1
 realpath_cache_size: 4096K
