@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 # NOTE: This is not a production build: for sandbox/CI use only
 
 # Pass the version of PHP to use as a build arg - must have corresponding config file
-ARG version=7.2
+ARG version=7.3
 
 # Build dependencies - removed after build is complete
 ENV BUILDDEPS autoconf \
@@ -34,11 +34,13 @@ ENV BUILDDEPS autoconf \
         libpspell-dev \
         libreadline-dev \
         libsasl2-dev \
+        libsodium-dev \
         libsqlite3-dev \
         libssh2-1-dev \
         libssl-dev \
         libsslcommon2-dev \
         libtidy-dev \
+        libwebp-dev \
         libxml2-dev \
         libxpm-dev \
         libxslt-dev \
@@ -63,6 +65,7 @@ COPY "${version}"-config /usr/src/config
 # hadolint ignore=SC1091,SC2016,SC2086,DL3003,DL3008
 RUN . /usr/src/config && \
         apt-get update && apt-get install -y \
+        apt-utils \
         ${BUILDDEPS} \
         # Permanently installed dependencies
         ca-certificates \
@@ -98,19 +101,22 @@ RUN . /usr/src/config && \
         pecl channel-update pecl.php.net; \
         # Install tideways from source (not available from pecl)
         cd /usr/src && \
-        curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/v4.1.5.tar.gz && \
+        curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/v4.1.7.tar.gz && \
         tar xzf xhprof.tar.gz && \
         cd php-xhprof-extension-* && \
         phpize && \
         ./configure && \
         make && \
-        make install  &&\
-        # Install, including ssh2 (which is installed but not via PECL)
-        yes '' | pecl install -n ${PECL} ssh2-1.1.2; \
+        make install && \
+        # Install, including raphf and ssh2 (which is installed but not via PECL)
+        yes '' | pecl install -n raphf-2.0.1 ssh2-1.1.2 ${PECL}; \
         # Move the extensions from the extension API version directory to the /opt/php/lib directory to simplify configuration (PECL ext_dir does not work)
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
         # Repeat the install/move so that extensions with dependencies can install
         yes '' | pecl install -n ${PECL}; \
+        mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
+        #  Install, including pecl_http (dependencies satisfied at this point)
+        yes '' | pecl install -n pecl_http-3.2.3; \
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
         # Configure php-fpm to use an existant user
         sed -i'' -e 's/^group = nobody/group = nogroup/' /usr/local/php/etc/php-fpm.d/www.conf.default && \

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-SUPPORTED_PHP=( 7.1 7.2 )
+SUPPORTED_PHP=( 7.1 7.2 7.3 )
 if [ -z "$HOST" ]; then
     echo "Specify a \$HOST to get configuration for."
     exit 1
