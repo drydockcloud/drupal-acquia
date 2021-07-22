@@ -120,6 +120,19 @@ RUN . /usr/src/config && \
         #  Install, including xdebug (dependencies satisfied at this point)
         yes '' | pecl install -n xdebug; \
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
+        # Configure xdebug
+        echo 'zend_extension="/usr/local/php/lib/php/extensions/xdebug.so"' >> /usr/local/php/etc/cli/php.ini && \
+        echo 'xdebug.collect_params = 0' >> /usr/local/php/etc/cli/php.ini && \
+        echo 'xdebug.default_enable = 1' >> /usr/local/php/etc/cli/php.ini && \
+        echo 'xdebug.max_nesting_level = 512' >> /usr/local/php/etc/cli/php.ini && \
+        echo 'xdebug.profiler_enable_trigger = 1' >> /usr/local/php/etc/cli/php.ini && \
+        echo 'xdebug.remote_autostart = 1' >> /usr/local/php/etc/cli/php.ini && \
+        echo 'xdebug.remote_enable = 1' >> /usr/local/php/etc/cli/php.ini && \
+        echo 'xdebug.remote_handler = "dbgp"' >> /usr/local/php/etc/cli/php.ini && \
+        echo 'xdebug.remote_host = host.docker.internal' >> /usr/local/php/etc/cli/php.ini && \
+        echo 'xdebug.remote_port = 9000' >> /usr/local/php/etc/cli/php.ini && \
+        echo 'xdebug.show_exception_trace = 0' >> /usr/local/php/etc/cli/php.ini && \
+        \
         # Configure php-fpm to use an existant user
         sed -i'' -e 's/^group = nobody/group = nogroup/' /usr/local/php/etc/php-fpm.d/www.conf.default && \
         \
