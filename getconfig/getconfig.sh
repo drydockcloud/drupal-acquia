@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-SUPPORTED_PHP=( 7.1 7.2 7.3 )
+SUPPORTED_PHP=( 7.1 7.2 7.3 7.4 )
 if [ -z "$HOST" ]; then
     echo "Specify a \$HOST to get configuration for."
     exit 1
@@ -22,10 +22,11 @@ ssh "$HOST" rm /tmp/getconfig.php
 
 echo "Updating Percona version"
 # Get a regular site alias to connect to
-ALIAS=$(ssh "$HOST" drush sa --local-only | grep -E '\.(prod|test|dev)$' | head -n1)
+ALIAS=$(ssh "$HOST" drush8 sa --local-only | grep -E '\.(prod|test|dev)$' | head -n1)
+ALIAS_SHORT=${ALIAS//@/}
 # Connect to the alias and output the version string
 # shellcheck disable=SC2029
-RAWVERSION=$(ssh "$HOST" "drush $ALIAS sqlq 'SHOW VARIABLES LIKE \"version\"'")
+RAWVERSION=$(ssh "$HOST" "drush8 -r  /var/www/html/$ALIAS_SHORT/docroot $ALIAS sqlq 'SHOW VARIABLES LIKE \"version\"'")
 # Extract the primary version number from the version string
 MYSQLVERSION=$(echo "$RAWVERSION" | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')
 # Update the version number in the Dockerfile with the extracted number
