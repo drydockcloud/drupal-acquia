@@ -8,7 +8,7 @@ services:
     depends_on:
       - php
   php:
-    image: "drydockcloud/drupal-acquia-php-${VERSION:-7.2}:${TAG:-latest}"
+    image: "drydockcloud/drupal-acquia-php-${VERSION:-7.3}:${TAG:-latest}"
     volumes:
       - .:/var/www
     depends_on:

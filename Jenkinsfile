@@ -19,15 +19,6 @@ pipeline {
         stage('Build') {
             when { anyOf { branch 'master'; changeRequest(); } }
             parallel {
-                stage('PHP 7.1') {
-                    steps {
-                        script {
-                            withEnv(['VERSION=7.1']) {
-                                sh 'docker build -t "drydockcloud/drupal-acquia-php-${VERSION}:${TAG}" ./php --build-arg version="${VERSION}"'
-                            }
-                        }
-                    }
-                }
                 stage('PHP 7.2') {
                     steps {
                         script {
@@ -40,7 +31,16 @@ pipeline {
                 stage('PHP 7.3') {
                     steps {
                         script {
-                            withEnv(['VERSION=7.2']) {
+                            withEnv(['VERSION=7.3']) {
+                                sh 'docker build -t "drydockcloud/drupal-acquia-php-${VERSION}:${TAG}" ./php --build-arg version="${VERSION}"'
+                            }
+                        }
+                    }
+                }
+                stage('PHP 7.4') {
+                    steps {
+                        script {
+                            withEnv(['VERSION=7.4']) {
                                 sh 'docker build -t "drydockcloud/drupal-acquia-php-${VERSION}:${TAG}" ./php --build-arg version="${VERSION}"'
                             }
                         }
@@ -65,19 +65,10 @@ pipeline {
         stage('Test') {
             when { anyOf { branch 'master'; changeRequest(); } }
             stages {
-                stage('Test PHP 7.1') {
-                    steps {
-                        script {
-                            withEnv(['VERSION=7.1']) {
-                                sh 'test/test.sh'
-                            }
-                        }
-                    }
-                }
                 stage('Test PHP 7.2') {
                     steps {
                         script {
-                            withEnv(['VERSION=7.1']) {
+                            withEnv(['VERSION=7.2']) {
                                 sh 'test/test.sh'
                             }
                         }
@@ -86,7 +77,16 @@ pipeline {
                 stage('Test PHP 7.3') {
                     steps {
                         script {
-                            withEnv(['VERSION=7.1']) {
+                            withEnv(['VERSION=7.3']) {
+                                sh 'test/test.sh'
+                            }
+                        }
+                    }
+                }
+                stage('Test PHP 7.4') {
+                    steps {
+                        script {
+                            withEnv(['VERSION=7.4']) {
                                 sh 'test/test.sh'
                             }
                         }
