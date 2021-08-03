@@ -5,7 +5,7 @@ RUN apt-get update && \
     openssl req -x509 -out /usr/local/apache2/conf/server.crt \
       -keyout /usr/local/apache2/conf/server.key \
       -newkey rsa:2048 -nodes -sha256 -subj '/CN=localhost' && \
-    apt-get install -y libonig-dev=6.9.6 && \
+    apt-get install -y --no-install-recommends libonig-dev=6.9.6 && \
     apt-get remove -y openssl && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
