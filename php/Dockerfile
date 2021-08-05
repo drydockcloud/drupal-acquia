@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 # NOTE: This is not a production build: for sandbox/CI use only
 
 # Pass the version of PHP to use as a build arg - must have corresponding config file
-ARG version=7.3
+ARG version=7.4
 
 # Build dependencies - removed after build is complete
 ENV BUILDDEPS autoconf \
