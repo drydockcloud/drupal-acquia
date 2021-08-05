@@ -29,6 +29,7 @@ ENV BUILDDEPS autoconf \
         libmcrypt-dev \
         libmemcached-dev \
         libmysqlclient-dev \
+        libonig-dev \
         libpng-dev \
         libpq-dev \
         libpspell-dev \
