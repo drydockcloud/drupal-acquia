@@ -104,7 +104,7 @@ RUN . /usr/src/config && \
         cd /usr/src && \
         # curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/v4.1.7.tar.gz && \
         # curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/releases/download/v5.0.2/tideways-xhprof-5.0.2-x86_64.tar.gz && \
-        curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/refs/tags/v5.0.2.tar.gz
+        curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/refs/tags/v5.0.2.tar.gz && \
         tar xzf xhprof.tar.gz && \
         cd php-xhprof-extension-* && \
         phpize && \
