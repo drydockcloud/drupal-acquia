@@ -58,5 +58,19 @@ pipeline {
                 }
             }
         }
+        stage('Push') {
+            when { anyOf { branch 'master'; changeRequest(); } }
+            stages {
+                stage('Push PHP 7.4') {
+                    steps {
+                        script {
+                            withEnv(['VERSION=7.4']) {
+                                sh 'docker push drydockcloud/drupal-acquia-php-7.4'
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
