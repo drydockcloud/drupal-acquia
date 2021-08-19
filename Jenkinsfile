@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment { 
         TAG = "${env.BRANCH_NAME}"
+        DOCKER_CREDS = credentials('hubtoken')
     }
     stages {
         stage('Code linting') {
@@ -65,7 +66,9 @@ pipeline {
                     steps {
                         script {
                             withEnv(['VERSION=7.4']) {
-                                sh 'docker push drydockcloud/drupal-acquia-php-7.4:PR-20'
+                                sh 'docker login --username civicactionsjenkins  --password $DOCKER_CREDS || true'
+                                sh '''docker tag drydockcloud/drupal-acquia-php-7.4:${TAG} drydockcloud/drupal-acquia-php-7.4:latest
+                                docker push drydockcloud/drupal-acquia-php-7.4:latest'''
                             }
                         }
                     }
@@ -74,3 +77,4 @@ pipeline {
         }
     }
 }
+
