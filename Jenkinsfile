@@ -66,7 +66,7 @@ pipeline {
                     steps {
                         script {
                             withEnv(['VERSION=7.4']) {
-                                sh 'docker login --username civicactionsjenkins  --password $DOCKER_CREDS || true'
+                                sh 'docker login --username civicactionsdrydock  --password $DOCKER_CREDS || true'
                                 sh '''docker tag drydockcloud/drupal-acquia-php-7.4:${TAG} drydockcloud/drupal-acquia-php-7.4:latest
                                 docker push drydockcloud/drupal-acquia-php-7.4:latest'''
                             }
