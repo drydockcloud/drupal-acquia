@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 # NOTE: This is not a production build: for sandbox/CI use only
 
 # Pass the version of PHP to use as a build arg - must have corresponding config file
-ARG version=7.3
+ARG version=7.4
 
 # Build dependencies - removed after build is complete
 ENV BUILDDEPS autoconf \
@@ -29,6 +29,7 @@ ENV BUILDDEPS autoconf \
         libmcrypt-dev \
         libmemcached-dev \
         libmysqlclient-dev \
+        libonig-dev \
         libpng-dev \
         libpq-dev \
         libpspell-dev \
@@ -101,7 +102,9 @@ RUN . /usr/src/config && \
         pecl channel-update pecl.php.net; \
         # Install tideways from source (not available from pecl)
         cd /usr/src && \
-        curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/v4.1.7.tar.gz && \
+        # curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/v4.1.7.tar.gz && \
+        # curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/releases/download/v5.0.2/tideways-xhprof-5.0.2-x86_64.tar.gz && \
+        curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/refs/tags/v5.0.2.tar.gz && \
         tar xzf xhprof.tar.gz && \
         cd php-xhprof-extension-* && \
         phpize && \
