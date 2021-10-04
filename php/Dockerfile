@@ -173,3 +173,16 @@ RUN if [ -d php-fpm.d ]; then \
 
 WORKDIR /var/www
 CMD ["/usr/local/php/sbin/php-fpm"]
+
+# Install OpenSSL 1.1 for LetsEncrypt support; see
+# https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021/
+# for more details.
+RUN apt-get update && \
+    apt-get install -y curl perl make gcc && \
+    curl -kO https://www.openssl.org/source/openssl-1.1.0f.tar.gz && \
+    tar -xzvf openssl-1.1.0f.tar.gz && \
+    cd openssl-1.1.0f && \
+    ./config -Wl,--enable-new-dtags,-rpath,'$(LIBRPATH)' && \
+    make && \
+    make install && \
+    apt-get remove -y curl perl make gcc
