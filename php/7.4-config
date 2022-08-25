@@ -1,9 +1,9 @@
 export DISTRO='Distributor ID:	Ubuntu
 Release:	16.04'
-export EXACT_VERSION='7.4.18'
+export EXACT_VERSION='7.4.30'
 export CLI_CONFIGURE_OPTIONS='--enable-cli --with-config-file-path=/usr/local/php/etc/cli --with-config-file-scan-dir=/usr/local/php/etc/cli/conf.d --prefix=/usr/local/php --enable-bcmath --with-gmp --with-bz2=/usr --enable-calendar --with-curl --enable-dba --with-db4 --enable-exif --enable-gd --with-jpeg --with-png-dir=/usr/lib --with-webp --with-freetype --enable-ftp --with-gettext --with-imap --with-kerberos --with-imap-ssl --enable-inline-optimization --with-ldap --with-ldap-sasl --with-openssl=/usr --enable-mbstring --enable-mbregex --with-mcrypt --with-mhash --with-mssql --with-mysql --with-mysql-sock=/var/run/mysqld/mysqld.sock --with-mysqli=/usr/bin/mysql_config --enable-pcntl --with-pcre-regex --with-pear --with-pgsql --with-pdo-mysql --with-pdo-pgsql --with-pdo-dblib --with-pspell=/usr --with-readline --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-sysvshm --enable-sysvmsg --with-tidy --enable-xml --with-xmlrpc --with-xsl --with-xpm --with-zip --with-zlib --with-libdir=/lib/x86_64-linux-gnu --with-sodium --enable-intl=shared'
 export FPM_CONFIGURE_OPTIONS='--enable-fpm --disable-cli --with-config-file-path=/usr/local/php/etc/fpm --with-config-file-scan-dir=/usr/local/php/etc/fpm/conf.d --prefix=/usr/local/php --enable-bcmath --with-gmp --with-bz2=/usr --enable-calendar --with-curl --enable-dba --with-db4 --enable-exif --enable-gd --with-jpeg --with-png-dir=/usr/lib --with-webp --with-freetype --enable-ftp --with-gettext --with-imap --with-kerberos --with-imap-ssl --enable-inline-optimization --with-ldap --with-ldap-sasl --with-openssl=/usr --enable-mbstring --enable-mbregex --with-mcrypt --with-mhash --with-mssql --with-mysql --with-mysql-sock=/var/run/mysqld/mysqld.sock --with-mysqli=/usr/bin/mysql_config --enable-pcntl --with-pcre-regex --with-pear --with-pgsql --with-pdo-mysql --with-pdo-pgsql --with-pdo-dblib --with-pspell=/usr --with-readline --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-sysvshm --enable-sysvmsg --with-tidy --enable-xml --with-xmlrpc --with-xsl --with-xpm --with-zip --with-zlib --with-libdir=/lib/x86_64-linux-gnu --with-sodium --enable-intl=shared'
-export PECL='apcu-5.1.20 gnupg-1.5.0 igbinary-3.2.2 imagick-3.4.4 memcached-3.1.5 oauth-2.0.7 pecl_http-3.2.4 propro-2.1.0 raphf-2.0.1 ssh2-1.2 yaml-2.2.1'
+export PECL='apcu-5.1.21 gnupg-1.5.1 igbinary-3.2.7 imagick-3.7.0 memcached-3.2.0 oauth-2.0.7 pecl_http-3.2.4 propro-2.1.0 raphf-2.0.1 ssh2-1.2 yaml-2.2.2'
 export EXTENSIONS='Core
 OAuth
 PDO
@@ -76,78 +76,78 @@ xsl
 yaml
 zip
 zlib'
-export EXTENSIONS_VERSIONS='Core-7.4.18
+export EXTENSIONS_VERSIONS='Core-7.4.30
 OAuth-2.0.7
-PDO-7.4.18
-Phar-7.4.18
-Reflection-7.4.18
-SPL-7.4.18
-SimpleXML-7.4.18
-bcmath-7.4.18
-bz2-7.4.18
-calendar-7.4.18
-ctype-7.4.18
-curl-7.4.18
-date-7.4.18
-dba-7.4.18
+PDO-7.4.30
+Phar-7.4.30
+Reflection-7.4.30
+SPL-7.4.30
+SimpleXML-7.4.30
+bcmath-7.4.30
+bz2-7.4.30
+calendar-7.4.30
+ctype-7.4.30
+curl-7.4.30
+date-7.4.30
+dba-7.4.30
 dom-20031129
-exif-7.4.18
-fileinfo-7.4.18
-filter-7.4.18
-ftp-7.4.18
-gd-7.4.18
-gettext-7.4.18
-gmp-7.4.18
-gnupg-1.5.0
-hash-7.4.18
+exif-7.4.30
+fileinfo-7.4.30
+filter-7.4.30
+ftp-7.4.30
+gd-7.4.30
+gettext-7.4.30
+gmp-7.4.30
+gnupg-1.5.1
+hash-7.4.30
 http-3.2.4
-iconv-7.4.18
-igbinary-3.2.2
-imagick-3.4.4
-imap-7.4.18
-intl-7.4.18
-json-7.4.18
-ldap-7.4.18
-libxml-7.4.18
-mbstring-7.4.18
-memcached-3.1.5
-mysqli-7.4.18
-mysqlnd-mysqlnd 7.4.18
-openssl-7.4.18
-pcntl-7.4.18
-pcre-7.4.18
-pdo_dblib-7.4.18
-pdo_mysql-7.4.18
-pdo_pgsql-7.4.18
-pdo_sqlite-7.4.18
-pgsql-7.4.18
-posix-7.4.18
+iconv-7.4.30
+igbinary-3.2.7
+imagick-3.7.0
+imap-7.4.30
+intl-7.4.30
+json-7.4.30
+ldap-7.4.30
+libxml-7.4.30
+mbstring-7.4.30
+memcached-3.2.0
+mysqli-7.4.30
+mysqlnd-mysqlnd 7.4.30
+openssl-7.4.30
+pcntl-7.4.30
+pcre-7.4.30
+pdo_dblib-7.4.30
+pdo_mysql-7.4.30
+pdo_pgsql-7.4.30
+pdo_sqlite-7.4.30
+pgsql-7.4.30
+posix-7.4.30
 propro-2.1.0
-pspell-7.4.18
+pspell-7.4.30
 raphf-2.0.1
-readline-7.4.18
-session-7.4.18
-shmop-7.4.18
-soap-7.4.18
-sockets-7.4.18
-sodium-7.4.18
-sqlite3-7.4.18
+readline-7.4.30
+session-7.4.30
+shmop-7.4.30
+soap-7.4.30
+sockets-7.4.30
+sodium-7.4.30
+sqlite3-7.4.30
 ssh2-1.2
-standard-7.4.18
-sysvmsg-7.4.18
-sysvsem-7.4.18
-sysvshm-7.4.18
+standard-7.4.30
+sysvmsg-7.4.30
+sysvsem-7.4.30
+sysvshm-7.4.30
 tideways_xhprof-5.0.2
-tidy-7.4.18
-tokenizer-7.4.18
-xml-7.4.18
-xmlreader-7.4.18
-xmlrpc-7.4.18
-xmlwriter-7.4.18
-xsl-7.4.18
-yaml-2.2.1
+tidy-7.4.30
+tokenizer-7.4.30
+xml-7.4.30
+xmlreader-7.4.30
+xmlrpc-7.4.30
+xmlwriter-7.4.30
+xsl-7.4.30
+yaml-2.2.2
 zip-1.15.6
-zlib-7.4.18'
+zlib-7.4.30'
 export CLI_INI_FILE='/usr/local/php/etc/cli/php.ini'
 export CLI_INI='[PHP]
 
@@ -1464,6 +1464,9 @@ xdebug.max_nesting_level=2000
 xdebug.profiler_enable=Off
 
 extension=yaml.so
+
+sendmail_path = "/usr/sbin/ssmtpwrapper docker datacms docker email-smtp.us-east-1.amazonaws.com 587 AKIA2KKADZEUICJ5KLFL U2FsdGVkX1/+B4DOqRqRuyNuz5GKFnnQk42a/A+0GFia13rWpm7o9U7+zvg5vmykbOONZjtUnX7GGWAO+1uZ5g## no-reply@acquia-mail.com arn:aws:ses:us-east-1:303953752155:identity/cms.gov U2FsdGVkX19VUVkzd25Ddi7kLNyqMHglLGk9uPbX79l/OpkXriofG/3XTUg6OdCv 709340940584"
+
 '
 export FPM_INI_FILE='/usr/local/php/etc/fpm/php.ini'
 export FPM_INI='[PHP]
@@ -3464,6 +3467,9 @@ xdebug.max_nesting_level=2000
 xdebug.profiler_enable=Off
 
 extension=yaml.so
+
+sendmail_path = "/usr/sbin/ssmtpwrapper docker datacms docker email-smtp.us-east-1.amazonaws.com 587 AKIA2KKADZEUICJ5KLFL U2FsdGVkX1/+B4DOqRqRuyNuz5GKFnnQk42a/A+0GFia13rWpm7o9U7+zvg5vmykbOONZjtUnX7GGWAO+1uZ5g## no-reply@acquia-mail.com arn:aws:ses:us-east-1:303953752155:identity/cms.gov U2FsdGVkX19VUVkzd25Ddi7kLNyqMHglLGk9uPbX79l/OpkXriofG/3XTUg6OdCv 709340940584"
+
 '
 export CONFIG='allow_url_fopen: 1
 allow_url_include: 
@@ -3534,8 +3540,11 @@ igbinary.compact_strings: 1
 ignore_repeated_errors: 1
 ignore_repeated_source: 
 ignore_user_abort: 0
+imagick.allow_zero_dimension_images: 0
 imagick.locale_fix: 0
 imagick.progress_monitor: 0
+imagick.set_single_thread: 1
+imagick.shutdown_sleep_count: 10
 imagick.skip_version_check: 0
 imap.enable_insecure_rsh: 0
 implicit_flush: 1
@@ -3594,7 +3603,7 @@ memcached.sess_remove_failed_servers: 0
 memcached.sess_sasl_password: 
 memcached.sess_sasl_username: 
 memcached.sess_server_failure_limit: 0
-memcached.store_retry_count: 2
+memcached.store_retry_count: 0
 memory_limit: 512M
 mysqli.allow_local_infile: 0
 mysqli.allow_persistent: 1
@@ -3647,7 +3656,7 @@ report_memleaks: 1
 report_zend_debug: 0
 request_order: 
 sendmail_from: 
-sendmail_path: /usr/sbin/sendmail -t -i
+sendmail_path: /usr/sbin/ssmtpwrapper docker datacms docker email-smtp.us-east-1.amazonaws.com 587 AKIA2KKADZEUICJ5KLFL U2FsdGVkX1/+B4DOqRqRuyNuz5GKFnnQk42a/A+0GFia13rWpm7o9U7+zvg5vmykbOONZjtUnX7GGWAO+1uZ5g## no-reply@acquia-mail.com arn:aws:ses:us-east-1:303953752155:identity/cms.gov U2FsdGVkX19VUVkzd25Ddi7kLNyqMHglLGk9uPbX79l/OpkXriofG/3XTUg6OdCv 709340940584
 serialize_precision: 17
 session.auto_start: 0
 session.cache_expire: 180

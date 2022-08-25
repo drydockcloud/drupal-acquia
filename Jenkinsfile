@@ -29,6 +29,15 @@ pipeline {
                         }
                     }
                 }
+                stage('PHP 8.0') {
+                   steps {
+                        script {
+                            withEnv(['VERSION=8.0']) {
+                                sh 'docker build -t "drydockcloud/drupal-acquia-php-${VERSION}:${TAG}" ./php --build-arg version="${VERSION}"'
+                            }
+                        }
+                    }
+                }
                 stage('httpd') {
                     steps {
                         script {
@@ -57,6 +66,15 @@ pipeline {
                         }
                     }
                 }
+                stage('Test PHP 8.0') {
+                    steps {
+                        script {
+                            withEnv(['VERSION=8.0']) {
+                                sh 'test/test.sh'
+                            }
+                        }
+                    }
+                }
             }
         }
         stage('Push') {
@@ -69,6 +87,17 @@ pipeline {
                                 sh 'docker login --username civicactionsdrydock  --password $DOCKER_CREDS || true'
                                 sh '''docker tag drydockcloud/drupal-acquia-php-7.4:${TAG} drydockcloud/drupal-acquia-php-7.4:latest
                                 docker push drydockcloud/drupal-acquia-php-7.4:latest'''
+                            }
+                        }
+                    }
+                }
+                stage('Push PHP 8.0') {
+                    steps {
+                        script {
+                            withEnv(['VERSION=8.0']) {
+                                sh 'docker login --username civicactionsdrydock  --password $DOCKER_CREDS || true'
+                                sh '''docker tag drydockcloud/drupal-acquia-php-8.0:${TAG} drydockcloud/drupal-acquia-php-8.0:latest
+                                docker push drydockcloud/drupal-acquia-php-8.0:latest'''
                             }
                         }
                     }
