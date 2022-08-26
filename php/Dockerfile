@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 # NOTE: This is not a production build: for sandbox/CI use only
 
 # Pass the version of PHP to use as a build arg - must have corresponding config file
-ARG version=7.4
+ARG version=8.0
 
 # Build dependencies - removed after build is complete
 ENV BUILDDEPS autoconf \
@@ -103,8 +103,8 @@ RUN . /usr/src/config && \
         # Install tideways from source (not available from pecl)
         cd /usr/src && \
         # curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/v4.1.7.tar.gz && \
-        # curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/releases/download/v5.0.2/tideways-xhprof-5.0.2-x86_64.tar.gz && \
-        curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/refs/tags/v5.0.2.tar.gz && \
+        # curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/releases/download/v5.0.4/tideways-xhprof-5.0.4-x86_64.tar.gz && \
+        curl --silent --location --output xhprof.tar.gz https://github.com/tideways/php-xhprof-extension/archive/refs/tags/v5.0.4.tar.gz && \
         tar xzf xhprof.tar.gz && \
         cd php-xhprof-extension-* && \
         phpize && \
@@ -112,14 +112,16 @@ RUN . /usr/src/config && \
         make && \
         make install && \
         # Install, including raphf and ssh2 (which is installed but not via PECL)
-        yes '' | pecl install -n raphf-2.0.1 ssh2-1.1.2 ${PECL}; \
+        echo "*************BEFORE**************" \
+        yes '' | pecl install -n raphf-2.0.1 ssh2-1.3.1 ${PECL}; \
+        echo "*************AFTER***************" \
         # Move the extensions from the extension API version directory to the /opt/php/lib directory to simplify configuration (PECL ext_dir does not work)
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
         # Repeat the install/move so that extensions with dependencies can install
         yes '' | pecl install -n ${PECL}; \
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
         #  Install, including pecl_http (dependencies satisfied at this point)
-        yes '' | pecl install -n pecl_http-3.2.3; \
+        yes '' | pecl install -n pecl_http-4.0.0; \
         #  Install, including xdebug (dependencies satisfied at this point)
         yes '' | pecl install -n xdebug; \
         mv /usr/local/php/lib/php/extensions/no-debug-non-zts-[0-9]*/* /usr/local/php/lib/php/extensions && \
